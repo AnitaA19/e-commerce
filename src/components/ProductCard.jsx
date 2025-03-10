@@ -33,7 +33,6 @@ function ProductCard({ productId }) {
                     <img className={styles.img} src={product.gallery[0]} alt={product.name} />
                     {!product.inStock && <div className={styles.outOfStockMessage}>Out of Stock</div>}
                     
-                    {/* Cart icon that appears on hover */}
                     {product.inStock && (
                         <div 
                             className={styles.cartIconOverlay}
