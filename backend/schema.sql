@@ -8,6 +8,8 @@ CREATE TABLE categories (
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
+select * from categories;
+
 -- Create currencies table
 CREATE TABLE currencies (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -75,6 +77,52 @@ CREATE TABLE prices (
     currency_id INT NOT NULL,
     FOREIGN KEY (product_id) REFERENCES products(id),
     FOREIGN KEY (currency_id) REFERENCES currencies(id)
+);
+
+
+
+-- Create orders table
+-- Create orders table with price field
+CREATE TABLE orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    price DECIMAL(10, 2) NOT NULL,  
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+
+-- Create order_items table to store individual products in an order
+CREATE TABLE order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id VARCHAR(100) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+-- Create order_attributes table to store selected attributes for each order
+CREATE TABLE order_attributes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id VARCHAR(255) NOT NULL,
+    attribute_set_id VARCHAR(255) NOT NULL,
+    attribute_item_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) 
+);
+
+
+
+-- Create order_item_attributes table to link attributes to order items
+CREATE TABLE order_item_attributes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_item_id INT NOT NULL,
+    attribute_set_id VARCHAR(100) NOT NULL,
+    attribute_item_id VARCHAR(100) NOT NULL,
+    FOREIGN KEY (order_item_id) REFERENCES order_items(id) ON DELETE CASCADE,
+    FOREIGN KEY (attribute_set_id) REFERENCES attribute_sets(id),
+    FOREIGN KEY (attribute_item_id) REFERENCES attribute_items(id)
 );
 
 -- Insert data into categories
