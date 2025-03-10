@@ -25,3 +25,10 @@
     font-size: 1.4rem;
     font-weight: 700;
   }
+
+  button[data-testid='cart-btn'] {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
