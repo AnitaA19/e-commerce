@@ -19,7 +19,16 @@ function ProductCard({ productId }) {
         e.stopPropagation();
         
         if (product.inStock) {
-            addToCart(product);
+            const defaultSelectedAttributes = {};
+            if (product.attributes && product.attributes.length > 0) {
+                product.attributes.forEach(attr => {
+                    if (attr.items && attr.items.length > 0) {
+                        defaultSelectedAttributes[attr.name] = attr.items[0].value;
+                    }
+                });
+            }
+             addToCart(product, defaultSelectedAttributes);
+
         }
     };
     

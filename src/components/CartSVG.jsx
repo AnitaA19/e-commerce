@@ -2,7 +2,6 @@ import styles from "./Cart.module.css"
 
 function CartSVG() {
     return (
-        <button data-testid='add-to-cart'>
           <svg
                         width={24}
                         height={24}
@@ -24,7 +23,6 @@ function CartSVG() {
                             fill="#43464E"
                         />
                     </svg>
-                    </button>
     )
 }
 
