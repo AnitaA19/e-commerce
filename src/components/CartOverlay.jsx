@@ -22,7 +22,7 @@ const PLACE_ORDER_MUTATION = gql`
   }
 `;
 
-function CartModal() {
+function CartOverlay() {
     const { 
         isModalOpen, 
         setIsModalOpen, 
@@ -279,4 +279,4 @@ function CartModal() {
     );
 }
 
-export default CartModal;
+export default CartOverlay;

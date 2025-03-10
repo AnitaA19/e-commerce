@@ -1,7 +1,7 @@
 // Layout.js - Updated to include CartModal
 import { Outlet } from 'react-router-dom';
 import Header from "./Header";
-import CartModal from "./CartModal";
+import CartOverlay from "./CartOverlay";
 import { useCartContext } from "../contexts/CartContext";
 import '../index.css';
 
@@ -14,7 +14,7 @@ function Layout() {
       <div>
         <Outlet />
       </div>
-      {isModalOpen && <CartModal />}
+      {isModalOpen && <CartOverlay />}
     </div>
   );
 }
