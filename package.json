@@ -12,6 +12,7 @@
   "dependencies": {
     "@apollo/client": "^3.13.2",
     "@tailwindcss/cli": "^4.0.8",
+    "axios": "^1.8.3",
     "composer": "^4.1.0",
     "dotenv": "^16.4.7",
     "graphql": "^16.10.0",
