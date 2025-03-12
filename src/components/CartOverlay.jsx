@@ -55,12 +55,10 @@ function CartOverlay() {
     
     if (!isModalOpen) return null;
     
-    // Get the currency symbol from the first item or default to $ if cart is empty
     const currencySymbol = cart.length > 0 && cart[0]?.prices[0]?.currency?.symbol 
         ? cart[0].prices[0].currency.symbol 
         : '$';
-    
-    // Format total price or return 0 if cart is empty
+
     const formattedTotal = cart.length > 0 ? getTotalPrice() : '0';
     
     const handlePlaceOrder = () => {

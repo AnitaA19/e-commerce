@@ -1,6 +1,6 @@
 .modalOverlay {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
@@ -17,10 +17,11 @@
     width: 40%;
     max-width: 32.5rem;
     max-height: 62.8rem;
-    overflow-y: auto; 
+    overflow-y: auto;
     padding: 4rem 2rem;
     position: relative;
     box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
 }
 
 .modalHeader {
@@ -251,4 +252,65 @@
     color: #888888;
     cursor: not-allowed;
     opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .modalContent {
+        width: 60%;
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modalOverlay {
+        top: 5rem;
+    }
+
+    .modalContent {
+        width: 80%;
+        padding: 2.5rem 1rem;
+    }
+
+    .modalHeader h2 {
+        font-size: 1.6rem;
+    }
+
+    .itemName {
+        font-size: 1.4rem;
+    }
+
+    .itemPrice {
+        font-size: 1.2rem;
+    }
+
+    .itemCounter {
+        font-size: 1.2rem;
+    }
+
+    .quantityButton {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.4rem;
+    }
+
+    .quantity {
+        font-size: 1.2rem;
+    }
+
+    .cartSummary {
+        padding-top: 1rem;
+    }
+
+    .totalRow {
+        font-size: 1.4rem;
+    }
+
+    .totalPrice {
+        font-size: 1.4rem;
+    }
+
+    .actionButton {
+        font-size: 1.2rem;
+        height: 4rem;
+    }
 }
