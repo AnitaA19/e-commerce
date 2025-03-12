@@ -1,8 +1,9 @@
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
+import { API_URL } from '../constants';
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'http://backend-ecommerce.atwebpages.com/', 
+    uri: API_URL, 
     headers: {
       'Content-Type': 'application/json',
     },
