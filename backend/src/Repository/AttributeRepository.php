@@ -46,19 +46,22 @@ class AttributeRepository {
             ORDER BY 
                 ats.id, ai.display_value
         ";
-    
+        
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':productId', $productId);
+        
+        
         $stmt->execute();
-    
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         if (empty($results)) {
             return [];
         }
     
+        error_log("Query Results: " . json_encode($results));
+        
         $detailedAttributes = [];
-    
+        
         foreach ($results as $row) {
             $existingSetIndex = null;
             foreach ($detailedAttributes as $index => $set) {
@@ -86,9 +89,10 @@ class AttributeRepository {
                 '__typename' => 'AttributeItem'
             ];
         }
-    
+        
         return $detailedAttributes;
     }
+    
 
     public function getAllColorAttributes() {
         $stmt = $this->db->query("SELECT * FROM attribute_sets WHERE type = 'Color'");

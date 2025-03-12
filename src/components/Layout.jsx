@@ -1,4 +1,3 @@
-// Layout.js - Updated to include CartModal
 import { Outlet } from 'react-router-dom';
 import Header from "./Header";
 import CartOverlay from "./CartOverlay";

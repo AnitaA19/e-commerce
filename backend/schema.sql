@@ -44,30 +44,7 @@ CREATE TABLE product_gallery (
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
--- Create attribute_sets table
-CREATE TABLE attribute_sets (
-    id VARCHAR(100) PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    type VARCHAR(50) NOT NULL
-);
-
--- Create attribute_items table
-CREATE TABLE attribute_items (
-    id VARCHAR(100) PRIMARY KEY,
-    attribute_set_id VARCHAR(100) NOT NULL,
-    display_value VARCHAR(100) NOT NULL,
-    value VARCHAR(100) NOT NULL,
-    FOREIGN KEY (attribute_set_id) REFERENCES attribute_sets(id)
-);
-
 -- Create product_attributes junction table
-CREATE TABLE product_attributes (
-    product_id VARCHAR(100) NOT NULL,
-    attribute_set_id VARCHAR(100) NOT NULL,
-    PRIMARY KEY (product_id, attribute_set_id),
-    FOREIGN KEY (product_id) REFERENCES products(id),
-    FOREIGN KEY (attribute_set_id) REFERENCES attribute_sets(id)
-);
 
 -- Create prices table
 CREATE TABLE prices (

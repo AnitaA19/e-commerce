@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { API_URL } from "../constants";
 
 const GET_PRODUCTS = `
   query {
@@ -47,7 +48,7 @@ export const ProductProvider = ({ children }) => {
       setError(null);
       
       try {
-        const response = await fetch('http://localhost:8000/index.php', {
+        const response = await fetch(API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
