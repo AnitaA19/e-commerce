@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://backend-ecommerce.atwebpages.com/', 
+    uri: 'http://backend-ecommerce.atwebpages.com/', 
     headers: {
       'Content-Type': 'application/json',
     },
