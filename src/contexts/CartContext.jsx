@@ -32,10 +32,8 @@ const cartReducer = (state, action) => {
         );
         
         if (existingItemIndex !== -1) {
-          // Create a new array and explicitly set the quantity to the previous value + 1
           const updatedCart = state.cart.map((item, index) => {
             if (index === existingItemIndex) {
-              // Force an increment of exactly 1
               return {
                 ...item,
                 quantity: item.quantity + 1
@@ -46,7 +44,6 @@ const cartReducer = (state, action) => {
           
           return { ...state, cart: updatedCart };
         } else {
-          // This part seems fine
           return { 
             ...state, 
             cart: [...state.cart, {
