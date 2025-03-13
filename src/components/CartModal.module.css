@@ -263,7 +263,8 @@
 
 @media (max-width: 480px) {
     .modalOverlay {
-        top: 5rem;
+        top: 14rem;
+        padding-top:0;
     }
 
     .modalContent {
