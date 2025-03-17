@@ -3,12 +3,16 @@ import styles from './Cart.module.css';
 import CartSVG from './CartSVG';
 
 function Cart() {
-    const { setIsModalOpen, getTotalItems } = useCartContext();
+    const { isModalOpen, setIsModalOpen, getTotalItems } = useCartContext();
     const itemCount = getTotalItems();
     
+    const toggleCart = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+    
     return (
-        <button className={styles.cartContainer} onClick={() => setIsModalOpen(true)} data-testid='cart-btn'>
-          <CartSVG/>
+        <button className={styles.cartContainer} onClick={toggleCart} data-testid='cart-btn'>
+            <CartSVG/>
             
             {itemCount > 0 && (
                 <div className={styles.cartBadge}>
