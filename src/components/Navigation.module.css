@@ -45,7 +45,8 @@
 
 
 @media (max-width: 480px) {
-    .navLink::after {
+    .navLink::after
+    .activeCategory::after  {
         content: "";
         position: absolute;
         left: 50%; 
