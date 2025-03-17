@@ -25,10 +25,8 @@ function Navigation() {
                     <li key={category.id}>
                         <NavLink
                             to={`/${category.name.toLowerCase()}`} 
-                            className={styles.navLink}
-                            data-testid={({ isActive }) =>
-                                isActive ? "active-category-link" : "category-link"
-                            }
+                            data-testid="category-link"
+className={({ isActive }) => isActive ? styles.activeCategory : styles.navLink}
                         >
                             {category.name} 
                         </NavLink>

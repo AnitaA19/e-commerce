@@ -4,7 +4,8 @@
     gap: 2rem; 
 }  
 
-.navLink:link, .navLink:visited {     
+.navLink:link, .navLink:visited,
+.activeCategory {     
     text-transform: uppercase;     
     color: #1D1F22;     
     text-decoration: none;     
@@ -16,7 +17,8 @@
     color: var(--color-brand--1); 
 }  
 
-.navLink::after {
+.navLink::after,
+.activeCategory::after {
     content: "";
     position: absolute;
     left: 50%; 
@@ -30,15 +32,16 @@
 }
 
 .navLink:hover::after,
-.navLink.active::after {
+.activeCategory::after {
     width: 140%; 
     opacity: 1;
 }
 
-.navLink.active {
-    font-weight: bold;
+.activeCategory {
     color: var(--color-brand--1);
+    text-decoration: none;
 }
+
 
 
 @media (max-width: 480px) {
