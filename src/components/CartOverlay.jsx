@@ -117,17 +117,23 @@ function CartOverlay() {
     };
     
     return (
-        <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)} data-testid="cart-overlay">
-            <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-                <div className={styles.modalHeader}>
-                    <h2>My Bag, <span className={styles.itemCounter}>{cart.length} items</span></h2>
-                    <button 
-                        className={styles.closeButton} 
-                        onClick={() => setIsModalOpen(false)}
-                    >
-                        ×
-                    </button>
-                </div>
+        <div 
+        className={styles.modalOverlay} 
+        onClick={() => setIsModalOpen(false)}
+        data-testid="cart-overlay"
+    >
+        <div 
+            className={styles.modalContent} 
+            onClick={(e) => e.stopPropagation()} 
+        >
+            <button 
+                className={styles.closeButton} 
+                onClick={() => setIsModalOpen(false)}
+                data-testid="close-cart"
+            >
+                ×
+            </button>
+        </div>
                 
                 {cart.length === 0 ? (
                     <p className={styles.emptyCart}>Your cart is empty</p>
