@@ -7,7 +7,7 @@ function Cart() {
     const itemCount = getTotalItems();
     
     return (
-        <div className={styles.cartContainer} onClick={() => setIsModalOpen(true)}>
+        <button className={styles.cartContainer} onClick={() => setIsModalOpen(true)} data-testid='cart-btn'>
           <CartSVG/>
             
             {itemCount > 0 && (
@@ -15,7 +15,7 @@ function Cart() {
                     <span>{itemCount}</span>
                 </div>
             )}
-        </div>
+        </button>
     );
 }
 
