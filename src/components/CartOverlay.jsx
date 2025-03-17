@@ -117,7 +117,7 @@ function CartOverlay() {
     };
     
     return (
-        <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
+        <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)} data-testid="cart-overlay">
             <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
                 <div className={styles.modalHeader}>
                     <h2>My Bag, <span className={styles.itemCounter}>{cart.length} items</span></h2>
