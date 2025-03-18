@@ -43,12 +43,12 @@ function ProductDetailsPage() {
     setAttributeError(false);
   };
 
+  const allAttributesSelected = product.attributes.every(attr => 
+    selectedAttributes[attr.name] !== undefined
+  );
+
   const handleAddToCart = () => {
-    const allAttributesSelected = product.attributes.every(attr => 
-      selectedAttributes[attr.name] !== undefined
-    );
-    
-    if (!product.inStock) return;
+    if (!product.inStock || !allAttributesSelected) return;
 
     if (!allAttributesSelected) {
       setAttributeError(true);
@@ -73,6 +73,7 @@ function ProductDetailsPage() {
     : shortDescription;
 
   const isOutOfStock = product.inStock === false;
+  const isButtonDisabled = isOutOfStock || !allAttributesSelected;
   const productNameKebab = toKebabCase(product.name);
 
   return ( 
@@ -148,7 +149,7 @@ function ProductDetailsPage() {
 
           <button 
             className={`${styles.addToCartBtn} ${isOutOfStock ? styles.outOfStock : ''}`} 
-            disabled={isOutOfStock}
+            disabled={isButtonDisabled}
             onClick={handleAddToCart}
             data-testid="add-to-cart"
           >
