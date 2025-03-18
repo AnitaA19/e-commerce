@@ -118,8 +118,6 @@ function ProductDetailsPage() {
                     <p className={styles.productDetail}>{attribute.name}:</p> 
                     <ul> 
                       {attribute.items.map(item => { 
-                        const itemValue = isColor ? item.value : toKebabCase(item.value);
-                        
                         return (
                           <li  
                             key={item.id}  
@@ -128,7 +126,7 @@ function ProductDetailsPage() {
                                      ${selectedAttributes[attribute.name] === item.value ? styles.selectedAttribute : ''}`}
                             style={isColor ? { backgroundColor: item.value } : {}} 
                             onClick={() => handleAttributeSelect(attribute.name, item.value)}
-                            data-testid={isColor ? `product-attribute-color-${item.value}` : `product-attribute-${attributeKebab}-${itemValue}`}
+                            data-testid={isColor ? `product-attribute-color-${item.value}` : `product-attribute-${attributeKebab}-${item.value}`}
                           > 
                             {isColor ? "" : item.value} 
                           </li> 
