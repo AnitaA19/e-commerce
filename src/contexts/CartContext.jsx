@@ -135,6 +135,8 @@ export const CartProvider = ({ children }) => {
       payload: { product, selectedAttributes } 
     });
     
+    setIsModalOpen(true);
+    
     return true;
   };
   
