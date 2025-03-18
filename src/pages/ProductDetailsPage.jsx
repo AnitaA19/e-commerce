@@ -110,26 +110,30 @@ function ProductDetailsPage() {
                 
                 return (
                   <div 
-                    key={attribute.id} 
-                    className={styles.attribute}
-                    data-testid={`product-attribute-${attributeKebab}`}
-                  > 
-                    <p className={styles.productDetail}>{attribute.name}:</p> 
-                    <ul> 
-                      {attribute.items.map(item => ( 
-                        <li  
-                          key={item.id}  
-                          className={`${styles.attributeItem} 
-                                    ${attribute.name.toLowerCase().includes('color') ? styles.colorItem : ''} 
-                                    ${selectedAttributes[attribute.name] === item.value ? styles.selectedAttribute : ''}`}
-                          style={attribute.name.toLowerCase().includes('color') ? { backgroundColor: item.value } : {}} 
-                          onClick={() => handleAttributeSelect(attribute.name, item.value)}
-                        > 
-                          {attribute.name.toLowerCase().includes('color') ? "" : item.value} 
-                        </li> 
-                      ))} 
-                    </ul> 
-                  </div>
+  key={attribute.id} 
+  className={styles.attribute}
+  data-testid={`product-attribute-${attributeKebab}`}
+> 
+  <p className={styles.productDetail}>{attribute.name}:</p> 
+  <ul> 
+    {attribute.items.map(item => {
+      const itemKebab = toKebabCase(item.value);
+      return (
+        <li  
+          key={item.id}  
+          className={`${styles.attributeItem} 
+                    ${attribute.name.toLowerCase().includes('color') ? styles.colorItem : ''} 
+                    ${selectedAttributes[attribute.name] === item.value ? styles.selectedAttribute : ''}`}
+          style={attribute.name.toLowerCase().includes('color') ? { backgroundColor: item.value } : {}} 
+          onClick={() => handleAttributeSelect(attribute.name, item.value)}
+          data-testid={`product-attribute-${attributeKebab}-${itemKebab}`}
+        > 
+          {attribute.name.toLowerCase().includes('color') ? "" : item.value} 
+        </li> 
+      )
+    })} 
+  </ul> 
+</div>
                 );
               })} 
             </div> 
