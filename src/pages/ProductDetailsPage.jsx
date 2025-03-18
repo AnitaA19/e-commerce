@@ -107,6 +107,7 @@ function ProductDetailsPage() {
             <div className={styles.productAttributes}> 
               {product.attributes.map(attribute => {
                 const attributeKebab = toKebabCase(attribute.name);
+                const isColor = attribute.name.toLowerCase().includes('color');
                 
                 return (
                   <div 
@@ -117,8 +118,7 @@ function ProductDetailsPage() {
                     <p className={styles.productDetail}>{attribute.name}:</p> 
                     <ul> 
                       {attribute.items.map(item => { 
-                        const isColor = attribute.name.toLowerCase().includes('color');
-                        const itemValue = toKebabCase(item.value);
+                        const itemValue = isColor ? item.value : toKebabCase(item.value);
                         
                         return (
                           <li  
@@ -128,7 +128,7 @@ function ProductDetailsPage() {
                                      ${selectedAttributes[attribute.name] === item.value ? styles.selectedAttribute : ''}`}
                             style={isColor ? { backgroundColor: item.value } : {}} 
                             onClick={() => handleAttributeSelect(attribute.name, item.value)}
-                            data-testid={isColor ? `product-attribute-color-${itemValue}` : `product-attribute-${attributeKebab}-${itemValue}`}
+                            data-testid={isColor ? `product-attribute-color-${item.value}` : `product-attribute-${attributeKebab}-${itemValue}`}
                           > 
                             {isColor ? "" : item.value} 
                           </li> 
