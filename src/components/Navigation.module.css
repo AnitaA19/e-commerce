@@ -45,17 +45,9 @@
 
 
 @media (max-width: 480px) {
-    .navLink::after
-    .activeCategory::after  {
-        content: "";
-        position: absolute;
-        left: 50%; 
-        bottom: -1rem;
-        width: 0; 
-        height: 0.2rem;
-        background-color: var(--color-brand--1);
-        transform: translateX(-50%); 
-        transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        opacity: 0;
+    .navLink::after,
+    .activeCategory::after {
+        bottom: -1rem; 
+        width: 100%; 
     }
   }
