@@ -9,7 +9,7 @@ exports.handler = async function(event, context) {
       };
     }
 
-    console.log('Запрос получен:', event.body);
+    console.log('Response:', event.body);
 
     const response = await axios({
       method: 'post',
