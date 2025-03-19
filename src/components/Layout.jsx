@@ -10,9 +10,7 @@ function Layout() {
   return (
     <div>
       <Header />
-      <div>
         <Outlet />
-      </div>
       {isModalOpen && <CartOverlay />}
     </div>
   );
